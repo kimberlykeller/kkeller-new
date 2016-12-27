@@ -1,60 +1,29 @@
+
+.fix-top {
+    	position: fixed;
+	}
+	
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
-
+	text-align: center;
+	@include font-size(1.125);
+	
 	ul {
 		display: none;
 		list-style: none;
-		margin: 0;
 		padding-left: 0;
-
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 1.5em;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
+		margin: 0 !important;
 	}
 
 	li {
-		float: left;
 		position: relative;
-
-		&:hover > a,
-		&.focus > a {
+		padding: .5rem;
+		&:hover,
+		&.focus  {
+			border: 1px solid $color__link;
+			margin: 0 37%;
 		}
 	}
 
@@ -63,18 +32,53 @@
 		text-decoration: none;
 	}
 
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
+	.current_page_item,
+	.current-menu-item,
+	.current_page_ancestor,
+	.current-menu-ancestor {
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+/* Top menu. */
+
+.top-navigation {
+	clear: both;
 	display: block;
+	width: 100%;
+	position: fixed;
+	background: $color__background-body;
+	
+	ul {
+		//text-align: right;
+		list-style: none;
+		margin: 0 !important;
+	}
+	li {
+		display: inline-block;
+		padding: .5rem;
+	}
+	
+	.fa {
+		@include font-size(1.125);
+		color: $color__link;
+	}
 }
+
+/* corrects scrolling error with top nav */
+:target:before {
+	content:"";
+	display:block;
+	height:90px; /* fixed header height*/
+	margin:-115px 0 0; /* negative fixed header height */
+}
+/* Small menu. */
+
+.main-navigation ul {
+	display: inline-block;
+}
+.menu-toggle {
+		display: inline-block;
+	}
 
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
@@ -82,6 +86,15 @@
 	}
 	.main-navigation ul {
 		display: block;
+		
+		li {
+			display: inline-block;
+			&:hover,
+			&.focus  {
+			border: 1px solid $color__link;
+			margin: 0;
+			}
+		}
 	}
 }
 

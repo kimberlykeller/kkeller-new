@@ -11,8 +11,11 @@
 
 ?>
 
-	</div><!-- #content -->
-
+		</div><!-- #content -->
+	</div><!-- #wrap -->
+</div><!-- #container -->
+</div><!-- #page -->
+<div id ="footer">
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kkeller' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'kkeller' ), 'WordPress' ); ?></a>
@@ -20,7 +23,8 @@
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'kkeller' ), 'kkeller', '<a href="http://www.kimberlyannkeller.com" rel="designer">Kimberly Ann Keller</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+</div>
+
 
 <?php wp_footer(); ?>
 

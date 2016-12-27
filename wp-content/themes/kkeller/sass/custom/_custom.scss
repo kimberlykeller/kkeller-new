@@ -1,0 +1,73 @@
+.site-title {
+    font-family: $font__headings;
+    @include font-size(2);
+    background: linear-gradient(#E0F2E9, rgba(0, 0, 0, 0) );
+    margin: 0;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    a {
+        color: #0D1B1E;
+    }
+}
+
+.logo {
+    max-width: 150px;
+    margin-top: 2rem;
+}
+.site-branding {
+    text-align: center;
+}
+
+.site-branding-home {
+    margin-top: 30%;
+    text-align: center;
+}
+
+.site-content {
+    @include outer-container;
+    margin: 0 1rem 4em;
+    padding-top: 40px;
+    @media screen and (min-width: 37.5em) {
+        @include span-columns(8);
+        @include shift(2);
+    }
+}
+
+.site-main {
+    padding: 1rem;
+    background: rgba(0,0,0,.5);
+    margin-bottom: 10%;
+    margin-top: 30vh;
+}
+
+.site-info {
+    @include outer-container;
+    @include span-columns(12);
+    margin: 0 1rem;
+}
+
+#masthead {
+}
+
+//sticky footer
+
+html, body {
+        height: 100%;
+}
+
+#page {
+ min-height: 100%;
+}
+
+#container {
+        overflow:auto;
+ padding-bottom: 80px;
+}  /* must be same height as the footer */
+
+#footer {
+     position: relative;
+     margin-top: -80px; /* negative value of footer height */
+     height: 80px;
+     clear:both;
+}
+

@@ -21,15 +21,26 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
+<div id="container"> <!-- used for sticky footer -->
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'kkeller' ); ?></a>
-
+	
+	<nav id="top-navigation" class="top-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false"><?php esc_html_e( 'Top Menu', 'kkeller' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'top', 'menu_id' => 'top-menu' ) ); ?>
+	</nav><!-- #site-navigation -->
+	
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+			
 			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			if ( is_front_page() ) : ?>
+			<div class="site-branding-home">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="logo" src="<?php echo get_bloginfo('template_url') ?>/img/logo2.png" />
+			</div>	<!-- .site-branding home -->
 			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<div class="site-branding">
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src= "<?php echo get_bloginfo('template_url') ?>/images/white-lotus.png" />
+			</div><!-- .site-branding -->
 			<?php
 			endif;
 
@@ -38,12 +49,11 @@
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kkeller' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
 
 	<div id="content" class="site-content">
